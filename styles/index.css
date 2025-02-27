@@ -1,0 +1,349 @@
+@layer reset, design, base, utility, mobile, tablet, desktop;
+
+@layer reset {
+    html {
+        box-sizing: border-box;
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    img,
+    ul,
+    ol,
+    li,
+    table,
+    tr,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+}
+
+@layer design {
+    :root {
+        /* Colors */
+        --rose-800: #7a284e;
+        --rose-50: #fff7fb;
+        --stone-900: #312e2c;
+        --stone-600: #5f564d;
+        --stone-150: #e3ddd7;
+        --stone-100: #f3e5d7;
+        --brown-800: #854632;
+        --white: #ffffff;
+
+        /* Typography */
+        --font-style-default: normal;
+        --font-optical-sizing-default: auto;
+        --letter-spacing-default: 0px;
+
+        --font-family-text-preset-1: "Young Serif", serif;
+        --font-size-text-preset-1: 40px;
+        --font-weight-text-preset-1: 400;
+        --line-height-text-preset-1: 1;
+
+        --font-family-text-preset-2: "Young Serif", serif;
+        --font-size-text-preset-2: 28px;
+        --font-weight-text-preset-2: 400;
+        --line-height-text-preset-2: 1;
+
+        --font-family-text-preset-3: "Outfit", sans-serif;
+        --font-size-text-preset-3: 20px;
+        --font-weight-text-preset-3: 600;
+        --line-height-text-preset-3: 1;
+
+        --font-family-text-preset-4: "Outfit", sans-serif;
+        --font-size-text-preset-4: 16px;
+        --font-weight-text-preset-4: 400;
+        --line-height-text-preset-4: 1.5;
+
+        --font-weight-text-preset-4-bold: 700;
+
+        @media (width < 768px) {
+            --font-size-text-preset-1: 36px;
+        }
+
+        /* Spacing */
+        --spacing-1600: 128px;
+        --spacing-600: 48px;
+        --spacing-500: 40px;
+        --spacing-400: 32px;
+        --spacing-300: 24px;
+        --spacing-200: 16px;
+        --spacing-150: 12px;
+        --spacing-100: 8px;
+    }
+}
+
+@layer utility {
+    .stone-900 {
+        color: var(--stone-900);
+    }
+
+    .stone-600 {
+        color: var(--stone-600);
+    }
+
+    .brown-800 {
+        color: var(--brown-800);
+    }
+
+    .text-preset-1 {
+        font-family: var(--font-family-text-preset-1);
+        font-size: var(--font-size-text-preset-1);
+        font-weight: var(--font-weight-text-preset-1);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-1);
+        letter-spacing: var(--letter-spacing-default);
+    }
+
+    .text-preset-2 {
+        font-family: var(--font-family-text-preset-2);
+        font-size: var(--font-size-text-preset-2);
+        font-weight: var(--font-weight-text-preset-2);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-2);
+        letter-spacing: var(--letter-spacing-default);
+    }
+
+    .text-preset-3 {
+        font-family: var(--font-family-text-preset-3);
+        font-size: var(--font-size-text-preset-3);
+        font-weight: var(--font-weight-text-preset-3);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-3);
+        letter-spacing: var(--letter-spacing-default);
+    }
+
+    .text-preset-4 {
+        font-family: var(--font-family-text-preset-4);
+        font-size: var(--font-size-text-preset-4);
+        font-weight: var(--font-weight-text-preset-4);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-4);
+        letter-spacing: var(--letter-spacing-default);
+    }
+
+    .text-preset-4-bold {
+        font-family: var(--font-family-text-preset-4);
+        font-size: var(--font-size-text-preset-4);
+        font-weight: var(--font-weight-text-preset-4-bold);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-4);
+        letter-spacing: var(--letter-spacing-default);
+    }
+}
+
+@layer base {
+    body {
+        width: 100%;
+        color: var(--stone-600);
+        background-color: var(--stone-100);
+        font-family: var(--font-family-text-preset-4);
+        font-size: var(--font-size-text-preset-4);
+        font-weight: var(--font-weight-text-preset-4);
+        font-style: var(--font-style-default);
+        font-optical-sizing: var(--font-optical-sizing-default);
+        line-height: var(--line-height-text-preset-4);
+        letter-spacing: var(--letter-spacing-default);
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .card {
+        background-color: var(--white);
+
+        .hero {
+            display: block;
+        }
+
+        .recipe {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-400);
+
+            .divider {
+                height: 1px;
+                width: 100%;
+                background-color: var(--stone-150);
+            }
+
+            .time {
+                display: flex;
+                flex-flow: column;
+                gap: var(--spacing-200);
+                padding-inline: var(--spacing-300);
+                padding-block: var(--spacing-300);
+                background-color: var(--rose-50);
+                border-radius: 12px;
+
+                .title {
+                    color: var(--rose-800);
+                }
+
+                ul {
+                    padding-inline-start: var(--spacing-200);
+
+                    li {
+                        margin-block-end: var(--spacing-150);
+
+                        span {
+                            display: inline-block;
+                            padding-inline-start: var(--spacing-200);
+                        }
+                    }
+
+                    li:last-of-type {
+                        margin-block-end: 0;
+                    }
+
+                    li::marker {
+                        color: var(--rose-800);
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .ingredients,
+            .instructions {
+                display: flex;
+                flex-flow: column;
+                gap: var(--spacing-300);
+
+                .title {
+                    color: var(--brown-800);
+                }
+
+                .list {
+                    padding-inline-start: var(--spacing-300);
+
+                    li {
+                        margin-block-end: 8px;
+                        padding-inline-start: var(--spacing-200);
+                    }
+
+                    li:last-of-type {
+                        margin-block-end: 0;
+                    }
+                }
+            }
+
+            .ingredients .list li::marker {
+                color: var(--brown-800);
+                font-size: 12px;
+            }
+
+            .instructions .list li::marker {
+                color: var(--brown-800);
+                font-size: var(--font-size-text-preset-4);
+                font-weight: var(--font-weight-text-preset-4-bold);
+            }
+
+            .nutrition {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-300);
+
+                .title {
+                    color: var(--brown-800);
+                }
+
+                table {
+                    td {
+                        padding-block: 12px;
+                        border-bottom: 1px solid var(--stone-150);
+                    }
+
+                    td:nth-of-type(odd) {
+                        padding-left: 32px;
+                    }
+
+                    td:nth-of-type(even) {
+                        color: var(--brown-800);
+                        font-weight: var(--font-weight-text-preset-4-bold);
+                    }
+
+                    tr:last-of-type td {
+                        border: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@layer mobile {
+    @media (width < 768px) {
+        .card {
+            width: 100%;
+
+            .recipe {
+                padding-inline: var(--spacing-400);
+                padding-block: var(--spacing-500);
+            }
+        }
+    }
+}
+
+@layer tablet {
+    @media (width >= 768px) and (width < 1440px) {
+        body {
+            padding-block: var(--spacing-1600);
+        }
+
+        .card {
+            max-width: 616px;
+            padding: var(--spacing-500);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-500);
+            border-radius: 24px;
+            margin: 0 auto;
+
+            .hero {
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+@layer desktop {
+    @media (width >= 1440px) {
+        body {
+            padding-block: var(--spacing-1600);
+        }
+
+        .card {
+            max-width: 736px;
+            padding: var(--spacing-500);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-500);
+            border-radius: 24px;
+            margin: 0 auto;
+
+            .hero {
+                border-radius: 12px;
+            }
+        }
+    }
+}
